@@ -20,8 +20,8 @@ void PatientAccount::QueryPatient() {
 
 // Generate the patient's bill
 void PatientAccount::GenBill() {
-    // The total is the sum of the room bill, medicine bill, and surgery bill.
-    double total = roomBill + medBill + surgBill;
+    // The total is the sum of the room bill, medicine bill, surgery bill, and ward bill.
+    double total = roomBill + medBill + surgBill + wardBill;
 
     std::cout << std::endl;
     std::cout << "Patient Information: " << std::endl;
@@ -37,15 +37,21 @@ void PatientAccount::GenBill() {
 
     // Print invoice details    
     std::cout << std::endl;
-    if (daysStayed > 0) {
+    if (daysStayed > 1) { // If the patient stayed overnight print the daily fees, and room charges
         std::cout << "Ward charge: " << daysStayed << " days @ S" << wardCPD << " = $ " << wardBill << std::endl;
         std::cout << "Room charge: " << daysStayed << " days @ $" << roomCPD << " = $ " << roomBill << std::endl;
     }
-    else {
+    else { // Else just print the lone ward charge
         std::cout << "Ward charge: " << wardBill << std::endl;
     }
-    std::cout << "Surgery charge: $ " << surgBill << std::endl;
-    std::cout << "Pharmacy charge: $ " << medBill << std::endl;
+    
+    if (surgBill > 0.0) { // Print surgery charge if there are any
+      std::cout << "Surgery charge: $ " << surgBill << std::endl;
+    }
+
+    if (medBill > 0.0) { // Print pharmacy charge if there are any
+      std::cout << "Pharmacy charge: $ " << medBill << std::endl;
+    }
 
     // Print total charges
     std::cout << std::endl;
