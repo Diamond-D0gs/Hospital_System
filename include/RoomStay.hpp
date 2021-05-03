@@ -10,9 +10,8 @@ class RoomStay {
     private:
         static std::vector<Service> rooms;
     protected: 
-        // Variables
-        double roomCPD = 0.0;
-        double roomBill = 0.0;
+        double roomCPD;
+        double roomBill;
         
         // Constructor - Protected due to only for inheritance use
         RoomStay(): roomCPD(0), roomBill(0) {}

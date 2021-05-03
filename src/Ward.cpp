@@ -28,9 +28,9 @@ void Ward::QueryWardAndRoom() {
 
     // Set days stayed according to the user's input, validate that it is within a reasonable range
     std::cout << std::endl;
-    daysStayed = ValidateUserInputRange<int>("How many days was the patient in the hospital? ", "Error! Please enter a positive value within range.", 0, 65535);
+    daysStayed = ValidateUserInputRange<int>("How many days was the patient at the hospital? ", "Error! Please enter a positive value within range.", 1, 65535);
 
-    if (daysStayed > 0) {
+    if (daysStayed > 1) {
         wardBill = wardCPD * daysStayed; // Charge daily ward fee times days stayed
         QueryRoomStay(daysStayed); // Query for room info
     }
