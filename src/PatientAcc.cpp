@@ -11,7 +11,7 @@ void PatientAccount::QueryPatient() {
         std::cout << "Please enter the patient's name: ";
         getline(std::cin, n);
     }
-    n.at(0) = toupper(n.at(0)); // Capitalize the first lett just in case.
+    n.at(0) = toupper(n.at(0)); // Capitalize the first letter just in case.
     name = n;
 
     age = ValidateUserInputRange<int>("Please enter the patient's age [0-120]: ", "Please enter a valid age", 0, 120);
