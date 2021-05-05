@@ -12,6 +12,7 @@ struct Service {
 };
 
 char ValidateUserCharInput(std::string prompt, std::string error, std::vector<char> checks);
+int ServiceMenuUserSelect(std::vector<Service> &service);
 
 template <typename T>
 T ValidateUserInputRange(std::string prompt, std::string error, T lower, T upper) {

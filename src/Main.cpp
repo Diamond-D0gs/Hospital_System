@@ -11,7 +11,7 @@ int main(void) {
     std::cout << "*** Patient Release Statement ***" << std::endl;
 
     patient.QueryPatient();
-    patient.QueryWardAndRoom();
+    patient.QueryVisit();
     patient.QuerySurgery();
     patient.QueryPharmacy();
     patient.GenBill();

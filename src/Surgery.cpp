@@ -19,15 +19,7 @@ void Surgery::QuerySurgery() {
     while (userInput == 'Y') { // if the user had gotten surgery, enter the loop.
         userSelect = 0;
 
-        // Loop over the surgery vector and print out its contents
-        std::cout << std::endl;
-        for (int i = 0; i < surgs.size(); ++i) {
-            std::cout << (i+1) << " - " << surgs.at(i).name << " $ " << surgs.at(i).cost << std::endl;
-        }
-
-        // Validate the user's input by checking that is within range of the surgery vector's size
-        std::cout << std::endl;
-        userSelect = ValidateUserInputRange<int>("Please enter your selection: ", "Error, Invalid selection. Please try again", 1, surgs.size());
+        userSelect = ServiceMenuUserSelect(surgs);
 
         // Add user's selection to the bill
         surgBill += surgs.at(userSelect-1).cost;

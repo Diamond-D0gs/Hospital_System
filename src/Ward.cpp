@@ -4,11 +4,26 @@ std::vector<Service> Ward::wards {
     {"Ward A", 100.0},
     {"Ward B", 200.0},
     {"Ward C", 150.50},
-    {"Ward D", 275.75},
-    {"Outpatient", 0.0}
+    {"Ward D", 275.75}
 };
 
-void Ward::QueryWardAndRoom() {
+void Ward::QueryWard(int daysStayed) {
+    int userSelect = 0;
+
+    std::cout << std::endl;
+    std::cout << "What ward was the patient treated in?" << std::endl;
+
+    userSelect = ServiceMenuUserSelect(wards);
+
+    // Add user's selection to the bill
+    wardCPD = wards.at(userSelect-1).cost;
+
+    // Charge daily ward fee times days stayed
+    wardBill = wardCPD * daysStayed; 
+}
+
+/*
+void Ward::QueryWardAndRoom(int daysStayed) {
     int userSelect = 0;
 
     std::cout << std::endl;
@@ -39,3 +54,4 @@ void Ward::QueryWardAndRoom() {
         wardBill = wardCPD; // Charge for single day visit
     }
 }
+*/

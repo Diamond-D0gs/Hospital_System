@@ -34,3 +34,24 @@ char ValidateUserCharInput(std::string prompt, std::string error, std::vector<ch
     // Return the first char from the userInput string
     return userInput.at(0);
 }
+
+int ServiceMenuUserSelect(std::vector<Service> &service) {
+    int userSelect = 0;
+
+    if (service.size() == 1) { // If there is only one option avaliable, skip the prompt and pass it directly.
+        userSelect = 1;
+    }
+    else {
+        // Loop over the surgery vector and print out its contents
+        std::cout << std::endl;
+        for (int i = 0; i < service.size(); ++i) {
+            std::cout << (i+1) << " - " << service.at(i).name << " $ " << service.at(i).cost << std::endl;
+        }
+
+        // Validate the user's input by checking that is within range of the surgery vector's size
+        std::cout << std::endl;
+        userSelect = ValidateUserInputRange<int>("Please enter your selection: ", "Error, Invalid selection. Please try again", 1, service.size());
+    }
+
+    return userSelect;
+}

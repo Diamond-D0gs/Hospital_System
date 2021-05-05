@@ -19,15 +19,7 @@ void Pharmacy::QueryPharmacy() {
     while (userInput == 'Y') {
         userSelect = 0;
 
-        // Loop over the medicine vector and print out its contents
-        std::cout << std::endl;
-        for (int i = 0; i < meds.size(); ++i) {
-            std::cout << (i+1) << " - " << meds.at(i).name << " $ " << meds.at(i).cost << std::endl;
-        }
-
-        // Validate the user's input by checking that is within range of the medicine vector's size
-        std::cout << std::endl;
-        userSelect = ValidateUserInputRange<int>("Please enter your selection: ", "Error, Invalid selection. Please try again", 1, meds.size());
+        userSelect = ServiceMenuUserSelect(meds);
 
         // Add user's selection to the bill
         medBill += meds.at(userSelect-1).cost;

@@ -7,19 +7,19 @@
 #ifndef WARD_H
 #define WARD_H
 
-class Ward: public RoomStay {
+class Ward {
     private:
         static std::vector<Service> wards;
     protected:
-        int daysStayed;
         double wardCPD;
         double wardBill;
 
         // Constructor - Protected due to only for inheritance use
-        Ward(): daysStayed(0), wardCPD(0), wardBill(0) {}
+        Ward(): wardCPD(0), wardBill(0) {}
 
-    public:
-        void QueryWardAndRoom();
+        // Methods - Protected due to only for inheritance use
+        void QueryWard(int daysStayed);
+        // void QueryWardAndRoom(int daysStayed);
 };
 
 #endif
