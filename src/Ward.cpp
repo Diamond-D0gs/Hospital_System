@@ -4,7 +4,8 @@ std::vector<Service> Ward::wards {
     {"Ward A", 100.0},
     {"Ward B", 200.0},
     {"Ward C", 150.50},
-    {"Ward D", 275.75}
+    {"Ward D", 275.75},
+    {"Outpatient", 0.0}
 };
 
 void Ward::QueryWardAndRoom() {
